@@ -6,6 +6,7 @@ public class Main {
 	private static Scanner sc = new Scanner(System.in);
 	private final static int INVALID_OPTION = (int) -1;
 	private final static int MULTIPLES = (int) 1;
+    private final static int GAME_DURATION = (int) 2;
 
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
@@ -19,6 +20,10 @@ public class Main {
 					System.out.println();
 					continueYesOrNo = Main.multiples();
 					break;
+                case GAME_DURATION:
+                    System.out.println();
+					continueYesOrNo = Main.gameDuration();
+                    break;
 				default:
 					System.out.printf("\nOpção inválida! Tente outra vez.\n\n");
 					question = INVALID_OPTION;
@@ -52,14 +57,16 @@ public class Main {
 		 */
 	}
 
-	private static char continueYesOrNo() {
+	private static char continueYesOrNo() 
+    {
 		char answer;
 		System.out.printf("\n\nContinuar usando funções? (S/N): ");
 		answer = sc.next().charAt(0);
 		return answer;
 	}
 
-	private static char multiples() {
+	private static char multiples() 
+    {
 		int a, b, aux;
         System.out.println("Are x and y multiples? Type the operands: ");
         a = sc.nextInt();
@@ -74,4 +81,17 @@ public class Main {
         System.out.printf("Are %d and %d multiples? A: %b\n", a, b, areMultiples);
 		return Main.continueYesOrNo();
 	}
+
+    private static char gameDuration()
+    {
+       // Leia a hora inicial e a hora final de um jogo. A seguir calcule a duração do jogo, sabendo que o mesmo pode
+       // começar em um dia e terminar em outro, tendo uma duração mínima de 1 hora e máxima de 24 horas.
+        int gameStart, gameEnd;
+        gameStart = sc.nextInt();
+        gameEnd = sc.nextInt();
+        // 00 - 1..23 - 00
+        
+        return Main.continueYesOrNo();
+    }
+
 }
